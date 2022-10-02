@@ -33,7 +33,7 @@ class MyAppState extends State<MyApp> {
           title: const Text('Expenses Tracker'),
         ),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Card(
               color: Color.fromARGB(255, 178, 182, 182),
@@ -43,11 +43,34 @@ class MyAppState extends State<MyApp> {
               ),
               elevation: 5,
             ),
-            Card(
-              child: Container(
-                child: Text("List of TXs"),
-              ),
-              elevation: 5,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ...(transactions).map((tx) {
+                  return Card(
+                      child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
+                        decoration: BoxDecoration(border:Border.all(
+                          color: Colors.purple,width:2
+                        )),
+                        padding: EdgeInsets.all(10),
+                        child: Text(tx.amount.toString(),
+                        style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.red),),
+                      ),
+                      Column(
+                        children: [
+                          Text(tx.title),
+                          Text(tx.date.toString()) 
+                        ],
+                      )
+                    ],
+                  ));
+                }).toList(),
+              ],
             )
           ],
         ),
