@@ -17,15 +17,20 @@ class NewTransaction extends StatelessWidget {
           TextField(
             decoration: InputDecoration(labelText: 'Title'),
             controller: titleController,
+            keyboardType: TextInputType.text,
           ),
           TextField(
             decoration: InputDecoration(labelText: 'Amount'),
             controller: amountController,
+            keyboardType: TextInputType.numberWithOptions(decimal: true),
           ),
           OutlinedButton(
               onPressed: () {
-                addNewTx(
-                    titleController.text, double.parse(amountController.text));
+                if (titleController.text != null &&
+                    double.parse(amountController.text) > 0) {
+                  addNewTx(titleController.text,
+                      double.parse(amountController.text));
+                }
               },
               child: Text('Add'))
         ],

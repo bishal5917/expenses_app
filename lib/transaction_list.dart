@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import './transaction.dart';
@@ -21,6 +23,7 @@ class TransactionList extends StatelessWidget {
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.purple, width: 2)),
                 padding: EdgeInsets.all(10),
+                width: 100,
                 child: Text(
                   '\$' + tx.amount.toString(),
                   style: TextStyle(
