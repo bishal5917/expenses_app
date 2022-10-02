@@ -24,6 +24,10 @@ class MyAppState extends State<MyApp> {
     Transaction(
         id: 'i2', title: "Naviforce Watch", amount: 29, date: DateTime.now())
   ];
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,11 +55,18 @@ class MyAppState extends State<MyApp> {
                   children: [
                     TextField(
                       decoration: InputDecoration(labelText: 'Title'),
+                      controller: titleController,
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: 'Amount'),
+                      controller: amountController,
                     ),
-                    OutlinedButton(onPressed: () {}, child: Text('Add'))
+                    OutlinedButton(
+                        onPressed: () {
+                          print(titleController.text);
+                          print(amountController.text);
+                        },
+                        child: Text('Add'))
                   ],
                 ),
               ),
