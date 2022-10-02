@@ -33,7 +33,7 @@ class MyAppState extends State<MyApp> {
           title: const Text('Expenses Tracker'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Card(
               color: Color.fromARGB(255, 178, 182, 182),
@@ -43,6 +43,23 @@ class MyAppState extends State<MyApp> {
               ),
               elevation: 5,
             ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Card(
+                elevation: 5,
+                child: Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                    ),
+                    OutlinedButton(onPressed: () {}, child: Text('Add'))
+                  ],
+                ),
+              ),
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -51,20 +68,30 @@ class MyAppState extends State<MyApp> {
                       child: Row(
                     children: [
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
-                        decoration: BoxDecoration(border:Border.all(
-                          color: Colors.purple,width:2
-                        )),
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.purple, width: 2)),
                         padding: EdgeInsets.all(10),
-                        child: Text(tx.amount.toString(),
-                        style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.red),),
+                        child: Text(
+                          '\$' + tx.amount.toString(),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.red),
+                        ),
                       ),
                       Column(
                         children: [
-                          Text(tx.title),
-                          Text(tx.date.toString()) 
+                          Text(
+                            tx.title,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            tx.date.toString(),
+                            style: TextStyle(color: Colors.grey),
+                          )
                         ],
                       )
                     ],
