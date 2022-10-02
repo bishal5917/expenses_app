@@ -23,19 +23,21 @@ class MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Expenses Tracker'),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Card(
-              color: Color.fromARGB(255, 178, 182, 182),
-              child: Container(
-                child: Text("Chart"),
-                width: 100,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Card(
+                color: Color.fromARGB(255, 178, 182, 182),
+                child: Container(
+                  child: Text("Chart"),
+                  width: 100,
+                ),
+                elevation: 5,
               ),
-              elevation: 5,
-            ),
-            UserTransaction()
-          ],
+              UserTransaction()
+            ],
+          ),
         ),
       ),
     );

@@ -22,13 +22,24 @@ class _UserTransactionState extends State<UserTransaction> {
         id: 'i2', title: "Naviforce Watch", amount: 29, date: DateTime.now())
   ];
 
+  void addTransaction(String title, double amount) {
+    final newtx = Transaction(
+        title: title,
+        amount: amount,
+        date: DateTime.now(),
+        id: DateTime.now().toString());
+    setState(() {
+      userTransaction.add(newtx);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
           padding: EdgeInsets.all(10),
-          child: NewTransaction(),
+          child: NewTransaction(addTransaction),
         ),
         TransactionList(userTransaction)
       ],
