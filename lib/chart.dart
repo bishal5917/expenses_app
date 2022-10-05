@@ -1,3 +1,4 @@
+import 'package:expenses_app/chartbar.dart';
 import 'package:expenses_app/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -38,6 +39,7 @@ class Chart extends StatelessWidget {
         ...(groupedTransactionValues).map((data) {
           return Text(data['day']);
         }),
+        // ChartBar()
       ]),
     );
   }
