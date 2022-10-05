@@ -35,9 +35,15 @@ class MyAppState extends State<MyApp> {
                 ),
                 elevation: 5,
               ),
-              UserTransaction()
+              UserTransaction(),
+              // Image.asset('assets/images/random.png')
+              
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {},
         ),
       ),
     );
