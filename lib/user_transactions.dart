@@ -1,3 +1,4 @@
+import 'package:expenses_app/chart.dart';
 import 'package:flutter/material.dart';
 
 import './new_transaction.dart';
@@ -22,6 +23,16 @@ class _UserTransactionState extends State<UserTransaction> {
         id: 'i2', title: "Naviforce Watch", amount: 29, date: DateTime.now())
   ];
 
+  List<Transaction> get recentTransaction {
+    return userTransaction.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   void addTransaction(String title, double amount) {
     final newtx = Transaction(
         title: title,
@@ -41,6 +52,7 @@ class _UserTransactionState extends State<UserTransaction> {
           padding: EdgeInsets.all(10),
           child: NewTransaction(addTransaction),
         ),
+        Chart(recentTransaction),
         TransactionList(userTransaction)
       ],
     );
