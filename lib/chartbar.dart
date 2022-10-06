@@ -10,9 +10,8 @@ class ChartBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text('\$' + spendingAmount.toString()),
+        FittedBox(child: Text('\$' + spendingAmount.toString())),
         SizedBox(height: 4,),
         Container(
           height: 60,
