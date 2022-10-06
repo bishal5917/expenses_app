@@ -40,10 +40,10 @@ class MyAppState extends State<MyApp> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {},
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   child: Icon(Icons.add),
+        //   onPressed: () {},
+        // ),
       ),
     );
   }
