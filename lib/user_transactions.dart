@@ -44,6 +44,12 @@ class _UserTransactionState extends State<UserTransaction> {
     });
   }
 
+  void deleteTx(String id) {
+    setState(() {
+      userTransaction.removeWhere((tx) => tx.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -53,7 +59,7 @@ class _UserTransactionState extends State<UserTransaction> {
           child: NewTransaction(addTransaction),
         ),
         Chart(recentTransaction),
-        TransactionList(userTransaction)
+        TransactionList(userTransaction, deleteTx)
       ],
     );
   }

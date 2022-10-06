@@ -30,14 +30,13 @@ class MyAppState extends State<MyApp> {
               Card(
                 color: Color.fromARGB(255, 178, 182, 182),
                 child: Container(
-                  child: Text("Chart"),
+                  // child: Text("Chart"),
                   width: 100,
                 ),
                 elevation: 5,
               ),
               UserTransaction(),
               // Image.asset('assets/images/random.png')
-              
             ],
           ),
         ),
